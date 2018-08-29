@@ -11,14 +11,14 @@ namespace InnerJoinLinq.Controllers
     {
         public IActionResult Index()
         {
-            var model = SearchDataModel.GetStudentDetail();
+            var model = StudentDataModel.GetStudentDetail();
             return View(model);
         }
         public IActionResult SearchByName(StudentModel studentName)
         {
             if (studentName.name != null)
             {
-                var model = SearchDataModel.GetStudentByName(studentName.name);
+                var model = StudentDataModel.GetStudentByName(studentName.name);
                 if (model != null)
                 {
                     return PartialView("_SingleStudentDetailPartial", model);

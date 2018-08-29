@@ -5,40 +5,40 @@ using System.Threading.Tasks;
 
 namespace InnerJoinLinq.Models.SearchData
 {
-    public class SearchDataModel
+    public class StudentDataModel
     {
-        public static List<SearchListModel> GetStudentDetail()
+        public static List<StudentListModel> GetStudentDetail()
         {
-            return new List<SearchListModel>
+            return new List<StudentListModel>
             {
-                new SearchListModel
+                new StudentListModel
                 {
                     StudentId=1,
                     StudentName="Archana",
                     StudentAge=6,
                     StudentClass="4th"
                 },
-                new SearchListModel
+                new StudentListModel
                 {
                     StudentId=2,
                     StudentName="Hchana",
                     StudentAge=6,
                     StudentClass="4th"
                 },
-                new SearchListModel
+                new StudentListModel
                 {StudentId=3,
                     StudentName="Archana",
                     StudentAge=23,
                     StudentClass="10th"
                 },
-                new SearchListModel
+                new StudentListModel
                 {
                    StudentId=4,
                     StudentName="Jrchana",
                     StudentAge=2,
                     StudentClass="4th"
                 },
-                new SearchListModel
+                new StudentListModel
                 {
                    StudentId=5,
                     StudentName="Rrchana",
@@ -49,9 +49,9 @@ namespace InnerJoinLinq.Models.SearchData
 
         }
 
-        public static List< SearchListModel> GetStudentByName(string name)
+        public static List< StudentListModel> GetStudentByName(string name)
         {
-            List<SearchListModel> searchList = new List<SearchListModel>();
+            List<StudentListModel> searchList = new List<StudentListModel>();
 
             searchList = (from s in GetStudentDetail()
                           where s.StudentName.ToLower().Contains(name.ToLower())

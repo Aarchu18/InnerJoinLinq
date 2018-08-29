@@ -2,36 +2,36 @@
 
 namespace InnerJoinLinq.Models.SearchData
 {
-    public class StudentTransactionModel
+    public class StudentTransactionDataModel
     {
-        public static List<SearchTrasactionModel> GetStudentTrsactionDetail()
+        public static List<StudentTrasactionListModel> GetStudentTrsactionDetail()
         {
-            return new List<SearchTrasactionModel>
+            return new List<StudentTrasactionListModel>
             {
-                new SearchTrasactionModel
+                new StudentTrasactionListModel
                 {
                     StudentId=1,
                    StudentFees=400,
                     Date="2/3/3"
                 },
-                new SearchTrasactionModel
+                new StudentTrasactionListModel
                 {
                     StudentId=2,
                     StudentFees=400,
                     Date="2/3/3"
                 },
-                new SearchTrasactionModel
+                new StudentTrasactionListModel
                 {StudentId=3,
                      StudentFees=400,
                     Date="2/3/3"
                 },
-                new SearchTrasactionModel
+                new StudentTrasactionListModel
                 {
                    StudentId=4,
                      StudentFees=400,
                     Date="2/3/3"
                 },
-                new SearchTrasactionModel
+                new StudentTrasactionListModel
                 {
                    StudentId=5,
                     StudentFees=400,

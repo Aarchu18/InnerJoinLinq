@@ -5,13 +5,16 @@ using System.Threading.Tasks;
 
 namespace InnerJoinLinq.Models.SearchData
 {
-    public class SearchTrasactionModel
+    public class StudentListModel
     {
         public int StudentId { get; set; }
-        public int StudentFees { get; set; }
 
-        public string Date { get; set; }
+        public string StudentName { get; set; }
 
-        
+        public string StudentClass { get; set; }
+
+        public int StudentAge { get; set; }
+
+       
     }
 }
