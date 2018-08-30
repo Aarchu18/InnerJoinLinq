@@ -1,4 +1,6 @@
-﻿@model List<InnerJoinLinq.Models.SearchData.StudentListModel>
+﻿@using InnerJoinLinq.Models.SearchData;
+
+@model List<StudentResult>
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -8,20 +10,24 @@
         <th>Student Name</th>
         <th>Student Age</th>
         <th>Student Class</th>
+        <th>Student Fees</th>
+        <th>Trasaction Date</th>
     </tr>
 
     @foreach (var data in Model)
-    {
+     {
         <tr>
             <td>@data.StudentId</td>
             <td>@data.StudentName</td>
             <td>@data.StudentAge</td>
             <td>@data.StudentClass</td>
+            <td>@data.StudentFees</td>
+            <td> @data.TrasactionDate</td>
 
 
         </tr>
 
-    }
+     }
 
 
 </table>

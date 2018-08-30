@@ -2,7 +2,7 @@
 
 namespace InnerJoinLinq.Models.SearchData
 {
-    public class StudentTransactionDataModel
+    public static class StudentTransactionDataModel
     {
         public static List<StudentTrasactionListModel> GetStudentTrsactionDetail()
         {
@@ -11,63 +11,67 @@ namespace InnerJoinLinq.Models.SearchData
                 new StudentTrasactionListModel
                 {
                     StudentId=1,
-                   StudentFees=400,
-                    Date="2/3/3"
+                    StudentFees=4000,
+                    TrasactionDate="02/03/2013"
                 },
                 new StudentTrasactionListModel
                 {
                     StudentId=2,
-                    StudentFees=400,
-                    Date="2/3/3"
-                },
-                new StudentTrasactionListModel
-                {StudentId=3,
-                     StudentFees=400,
-                    Date="2/3/3"
+                    StudentFees=5000,
+                    TrasactionDate="04/03/2013"
                 },
                 new StudentTrasactionListModel
                 {
-                   StudentId=4,
-                     StudentFees=400,
-                    Date="2/3/3"
+                    StudentId =3,
+                    StudentFees=1000,
+                    TrasactionDate="02/03/2014"
                 },
                 new StudentTrasactionListModel
                 {
-                   StudentId=5,
-                    StudentFees=400,
-                    Date="2/3/3"
-                }
+                    StudentId=4,
+                    StudentFees=4000,
+                    TrasactionDate="10/03/2018"
+                },
+                new StudentTrasactionListModel
+                {
+                    StudentId=5,
+                    StudentFees=7000,
+                    TrasactionDate="02/09/2009"
+                },
+                new StudentTrasactionListModel
+                {
+                    StudentId=6,
+                    StudentFees=10000,
+                    TrasactionDate="02/03/2014"
+                },
+                new StudentTrasactionListModel
+                {
+                    StudentId=7,
+                    StudentFees=7000,
+                    TrasactionDate="02/03/2002"
+                },
+                new StudentTrasactionListModel
+                {
+                     StudentId=8,
+                     StudentFees=9000,
+                     TrasactionDate="02/03/2004"
+                },
+                new StudentTrasactionListModel
+                {
+                     StudentId=9,
+                     StudentFees=8000,
+                     TrasactionDate="02/03/2005"
+                },
+                new StudentTrasactionListModel
+                {
+                     StudentId=10,
+                     StudentFees=2600,
+                     TrasactionDate="02/03/2017"
+                },
             };
 
         }
 
-        //public static List<SearchTrasactionModel> GetStudentByOrder(int id)
-        //{
-        //    List<SearchTrasactionModel> searchList = new List<SearchTrasactionModel>();
-        //    //var query = from order in workOrders
-        //    //            join plan in plans
-        //    //                 on order.WorkOrderNumber equals plan.WorkOrderNumber
-        //    //            select new
-        //    //            {
-        //    //                order.WorkOrderNumber,
-        //    //                order.Description,
-        //    //                plan.ScheduledDate
-        //    //            };
-        //    searchList = (from s in SearchDataModel
-        //                  join p in SearchTransactionModel on s.StudentId equals p.StudentId
-        //                  select new
-        //                  {
-        //                      s.StudentId,
-        //                      s.StudentName,
-        //                      s.StudentFees,
-        //                      s.Date
-        //                  });
-
-        //    //searchList = (from s in GetStudentDetail()
-        //    //              where s.StudentName.ToLower().Contains(name.ToLower())
-        //    //              select s).ToList();
-        //    return searchList;
-        //    // var result = (from sl in SearchListModel join sf in StudentFee on sl.StudentID equals sf.StudentID orderby sl.StudentID select new { sl.StudentID, sl.StudentName, sf.Fee }).ToList();
-        //}
+       
     }
 }

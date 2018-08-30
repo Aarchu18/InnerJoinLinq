@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace InnerJoinLinq.Models.SearchData
 {
-    public class StudentDataModel
+    public  static class StudentDataModel
     {
         public static List<StudentListModel> GetStudentDetail()
         {
@@ -16,47 +13,74 @@ namespace InnerJoinLinq.Models.SearchData
                     StudentId=1,
                     StudentName="Archana",
                     StudentAge=6,
-                    StudentClass="4th"
+                    StudentClass=3
                 },
                 new StudentListModel
                 {
                     StudentId=2,
-                    StudentName="Hchana",
-                    StudentAge=6,
-                    StudentClass="4th"
+                    StudentName="Abhi",
+                    StudentAge=16,
+                    StudentClass=3
                 },
                 new StudentListModel
                 {StudentId=3,
-                    StudentName="Archana",
+                    StudentName="Ranjana",
                     StudentAge=23,
-                    StudentClass="10th"
+                    StudentClass=4
                 },
                 new StudentListModel
                 {
                    StudentId=4,
-                    StudentName="Jrchana",
-                    StudentAge=2,
-                    StudentClass="4th"
+                    StudentName="Suraj",
+                    StudentAge=12,
+                    StudentClass=6
                 },
                 new StudentListModel
                 {
                    StudentId=5,
-                    StudentName="Rrchana",
+                    StudentName="Ram",
+                    StudentAge=12,
+                    StudentClass=9
+                },
+                new StudentListModel
+                {
+                   StudentId=6,
+                    StudentName="Ramlal",
                     StudentAge=20,
-                    StudentClass="4th"
+                    StudentClass=16
+                },
+                new StudentListModel
+                {
+                   StudentId=7,
+                    StudentName="Tanya",
+                    StudentAge=20,
+                    StudentClass=13
+                },
+                new StudentListModel
+                {
+                   StudentId=8,
+                    StudentName="Ramya",
+                    StudentAge=20,
+                    StudentClass=7
+                },
+                new StudentListModel
+                {
+                   StudentId=9,
+                    StudentName="Raghu",
+                    StudentAge=20,
+                    StudentClass=16
+                },
+                new StudentListModel
+                {
+                   StudentId=10,
+                    StudentName="Neha",
+                    StudentAge=20,
+                    StudentClass=10
                 }
             };
 
         }
 
-        public static List< StudentListModel> GetStudentByName(string name)
-        {
-            List<StudentListModel> searchList = new List<StudentListModel>();
-
-            searchList = (from s in GetStudentDetail()
-                          where s.StudentName.ToLower().Contains(name.ToLower())
-                          select s).ToList();
-            return searchList;
-        }
+       
     }
 }

@@ -1,9 +1,9 @@
 ﻿$('[data-attr="submit"]').on('click', function () {
     $.ajax(
         {
-            type: "GET",
-            url: "/Search/SearchByName",
-            data: { 'name': $('#SearchId').val() },
+            type: "POST",
+            url: "/Search/Index",
+            data: $('#SearchId').serialize(),
             success: function (response) {
                 $('#divInitialLoad').hide();
                 $('#divAjaxLoad').html('');
@@ -11,9 +11,7 @@
             },
             error: function (err) {
                 console.log(err);
-                $('#divInitialLoad').hide();
-                $('#divAjaxLoad').html('');
-                $('#divAjaxLoad').html(err.statusText);
+               
             }
         });
 });

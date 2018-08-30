@@ -1,20 +1,17 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model IEnumerable<InnerJoinLinq.Models.SearchData.StudentListModel> ;
+@using InnerJoinLinq.Models.SearchData;
+@model StudentViewList
 @{
     ViewData["Title"] = "Index";
 }
 
-
-
-
 <div id="divInitialLoad">
-    <partial name="_StudentDetailPartial" model="@Model" />
+    <partial name="_StudentDetailPartial" model="Model.StudentListData" />
 </div>
 
 <div id="divAjaxLoad">
 
 </div>
-
 
 <html>
 
@@ -26,33 +23,35 @@
 </head>
 
 <body>
+    <form id="SearchId" method="post">
 
-    <div>
-        Search a Student by its
-        <select>
-            <option value="studentName">Student Id</option>
-            <option value="studentClass">Student Name</option>
-            <option value="studentClass">Student Class</option>
+        <div>
+            Search a Student by its
+            <select name="SearchByAttribute">
+                <option value="">Select</option>
+                <option value="StudentId">Student Id</option>
+                <option value="StudentName">Student Name</option>
+                <option value="StudentClass">Student Class</option>
 
-        </select>
-        <input type="text" id="SearchId">&nbsp;&nbsp;
-        OrderBy:
-        <select>
-            <option value="studentName">Student Id</option>
-            <option value="studentClass">Student Name</option>
-            <option value="studentClass">Student Class</option>
+            </select>
+            <input type="text" name="SearchText">&nbsp;&nbsp;
+            OrderBy:
+            <select name="SortByAttribute">
+                <option value="">Select</option>
+                <option value="StudentId">Student Id</option>
+                <option value="StudentName">Student Name</option>
+                <option value="StudentClass">Student Class</option>
 
-        </select>&nbsp;&nbsp;
-        Range <b>></b>
-        <input type="number" min="0" style="width:100px" placeholder="Enter Fees"/>
-        <b><</b>
-        <input type="number" min="0"style="width:100px" placeholder="Enter Fees"/>
+            </select>&nbsp;&nbsp;
+            <b><span> Range :</span></b>
+            <input type="number" name="MinRange" />
+            <b><span>  To :</span></b>
+            <input type="number" name=" MaxRange" />
+        </div>
 
-    </div>
-   
-
+    </form>
     <button type="button" class="btn btn-success" value="Submit" data-attr="submit">Search</button>
-
+        
 </body>
 
 </html>

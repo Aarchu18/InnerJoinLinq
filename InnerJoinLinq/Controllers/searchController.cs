@@ -1,9 +1,7 @@
-﻿using System;
+﻿using InnerJoinLinq.Models.SearchData;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using InnerJoinLinq.Models.SearchData;
-using Microsoft.AspNetCore.Mvc;
 
 namespace InnerJoinLinq.Controllers
 {
@@ -11,35 +9,37 @@ namespace InnerJoinLinq.Controllers
     {
         public IActionResult Index()
         {
-            var model = StudentDataModel.GetStudentDetail();
-            return View(model);
+
+            List<StudentListModel> studentListModel = StudentDataModel.GetStudentDetail();
+            List<StudentTrasactionListModel> studentTrasactionListModel = StudentTransactionDataModel.GetStudentTrsactionDetail();
+            List<StudentResult> studentResult = (from studentList in studentListModel
+                                                 join studentTrasactionList in studentTrasactionListModel
+                                                 on studentList.StudentId equals studentTrasactionList.StudentId
+                                                 select new StudentResult
+                                                 {
+                                                     StudentId = studentList.StudentId,
+                                                     StudentName = studentList.StudentName,
+                                                     StudentClass = studentList.StudentClass,
+                                                     StudentAge = studentList.StudentAge,
+                                                     StudentFees = studentTrasactionList.StudentFees,
+                                                     TrasactionDate = studentTrasactionList.TrasactionDate
+                                                 }
+                                                ).ToList();
+
+            StudentViewList studentViewList = new StudentViewList();
+            studentViewList.StudentListData = studentResult;
+            return View(studentViewList);
         }
-        public IActionResult SearchByName(StudentModel studentName)
+        [HttpPost]
+        public IActionResult Index(StudentSearchAttribute searchAttributeData)
         {
-            if (studentName.name != null)
-            {
-                var model = StudentDataModel.GetStudentByName(studentName.name);
-                if (model != null)
-                {
-                    return PartialView("_SingleStudentDetailPartial", model);
-                }
-            }
-
-            return NotFound();
+            Result resultObj = new Result();
+            List<StudentResult> studentListData = resultObj.GetResults(searchAttributeData);
+            return PartialView("_SingleStudentDetailPartial", studentListData);
         }
+       
 
-        //public IActionResult Trsaction()
-        //{
-        //    var t = SearchTrasactionModel.GetStudentTrsactionDetail();
-        //    return View(t);
-        //}
-        //public IActionResult SearchByOrder(int id)
-        //{
-        //    var o = SearchTrasactionModel.GetStudentByOrder(int id);
-        //    if (model != null)
-        //    {
-        //        return PartialView("_SingleStudentDetailPartial", o);
-        //    }
-        //}
+
+       
     }
 }
